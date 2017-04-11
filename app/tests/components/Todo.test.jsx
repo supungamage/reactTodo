@@ -4,25 +4,28 @@ var expect = require('expect');
 var $ = require('jQuery');
 var TestUtils = require('react-addons-test-utils');
 
-var Todo = require('Todo');
+var {Todo} = require('Todo');
 
 describe('Todo', () => {
     it('Should exist', () => {
       expect(Todo).toExist();
     });
 
-    it('Should call onToggle prop when todo is clecked', () => {
+    it('Should dispatch TOGGLE_TODO action when todo is clicked', () => {
       var todoData = {
         id: 111,
         text: 'test data',
         compleated: false
       };
       var spy = expect.createSpy();
-      var todo = TestUtils.renderIntoDocument(<Todo {...todoData} onToggle={spy}/>);
+      var todo = TestUtils.renderIntoDocument(<Todo {...todoData} dispatch={spy}/>);
       var $el = $(ReactDOM.findDOMNode(todo));
 
       TestUtils.Simulate.click($el[0]);
 
-      expect(spy).toHaveBeenCalledWith(todoData.id);
-    })
+      expect(spy).toHaveBeenCalledWith({
+        type: 'TOGGLE_TODO',
+        id: todoData.id
+      });
+    });
 });
