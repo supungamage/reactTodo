@@ -9,7 +9,7 @@ export var Todo = React.createClass({
     var {id,text,compleated,createdAt,compleatedAt,dispatch} = this.props;
     var todoClassName = compleated ? 'todo todo-completed' : 'todo';
 
-    var renderDate = function() {
+    var renderDate = () => {
       var message = 'Created :';
       var time = createdAt;
 

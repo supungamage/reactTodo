@@ -39,6 +39,25 @@ describe('Reducers', () => {
       expect(res[0].text).toEqual(action.text);
     });
 
+    it('Should add todos to todos list in initial state', () => {
+      var todos = [{
+        id: 11,
+        text: 'anything',
+        compleated: false,
+        compleatedAt: undefined,
+        createdAt: 4000
+      }];
+      var action = {
+        type: 'ADD_TODOS',
+        todos
+      };
+
+      var res = reducers.todoReducer(df([]), df(action));
+
+      expect(res.length).toEqual(1);
+      expect(res[0]).toEqual(todos[0]);
+    });
+
     it('Should status flipp when toggling todo', () => {
       var todoList = [
         {

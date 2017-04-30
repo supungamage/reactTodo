@@ -2,7 +2,6 @@ var React = require('react');
 var {connect} = require('react-redux');
 
 var TodoAPI = require('TodoAPI');
-//var Todo = require('Todo');
 import Todo from 'Todo';
 
 export var TodoList = React.createClass({
@@ -16,7 +15,7 @@ export var TodoList = React.createClass({
       }
 
       return TodoAPI.filterTodos(todos, showCompleated, searchText).map((todo) => {
-        return(
+        return (
           <Todo key={todo.id} {...todo}/>
         );
       });
