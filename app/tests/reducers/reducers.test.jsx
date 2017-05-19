@@ -31,12 +31,16 @@ describe('Reducers', () => {
     it('Should add todo to todos list', () => {
       var action = {
         type: 'ADD_TODO',
-        text: 'add todo'
+        todo: {
+          text: 'anything',
+          compleated: false,
+          createdAt: 4000
+        }
       };
       var res = reducers.todoReducer(df([]), df(action));
 
       expect(res.length).toEqual(1);
-      expect(res[0].text).toEqual(action.text);
+      expect(res[0]).toEqual(action.todo);
     });
 
     it('Should add todos to todos list in initial state', () => {
@@ -58,7 +62,7 @@ describe('Reducers', () => {
       expect(res[0]).toEqual(todos[0]);
     });
 
-    it('Should status flipp when toggling todo', () => {
+    it('Should status flipp when toggling/updating todo', () => {
       var todoList = [
         {
           id: 1,
@@ -68,15 +72,21 @@ describe('Reducers', () => {
           compleatedAt: 125
         }
       ];
+      var updates = {
+        compleated: false,
+        compleatedAt: null
+      };
       var action = {
-        type: 'TOGGLE_TODO',
-        id: 1
+        type: 'UPDATE_TODO',
+        id: 1,
+        updates
       };
       var res = reducers.todoReducer(df(todoList), df(action));
 
       expect(res.length).toEqual(1);
-      expect(res[0].compleated).toEqual(!(todoList[0].compleated));
-      expect(res[0].compleatedAt).toNotExist();
+      expect(res[0].compleated).toEqual(updates.compleated);
+      expect(res[0].compleatedAt).toEqual(updates.compleatedAt);
+      expect(res[0].text).toEqual(todoList[0].text);
     });
   });
 });

@@ -9,14 +9,18 @@ var TodoAPI = require('TodoAPI');
 
 var TodoApp = require('TodoApp');
 
-store.subscribe(() => {
+//import './../playground/firebase/index';
+
+/*store.subscribe(() => {
   var state = store.getState();
   console.log('New State', state);
-  TodoAPI.setTodos(state.todos);
+  //TodoAPI.setTodos(state.todos);
 });
 
 var initialTodos = TodoAPI.getTodos();
-store.dispatch(actions.addTodos(initialTodos));
+store.dispatch(actions.addTodos(initialTodos));*/
+
+store.dispatch(actions.startAddTodos());
 
 $(document).foundation();
 
