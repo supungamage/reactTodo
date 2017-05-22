@@ -7,7 +7,7 @@ var actions = require('actions');
 var store = require('configStore').configure();
 var TodoAPI = require('TodoAPI');
 
-var TodoApp = require('TodoApp');
+import TodoApp from 'TodoApp';
 import Login from 'Login';
 
 //import './../playground/firebase/index';
@@ -31,7 +31,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/">
-        <Route path="/todo" component={TodoApp}/>
+        <Route path="/todos" component={TodoApp}/>
         <IndexRoute component={Login}/>
       </Route>
     </Router>
