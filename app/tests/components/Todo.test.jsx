@@ -16,9 +16,9 @@ describe('Todo', () => {
       var todoData = {
         id: 111,
         text: 'test data',
-        compleated: true
+        completed: true
       };
-      var action = actions.startUpdateTodo(todoData.id, !todoData.compleated);
+      var action = actions.startUpdateTodo(todoData.id, !todoData.completed);
 
       var spy = expect.createSpy();
       var todo = TestUtils.renderIntoDocument(<Todo {...todoData} dispatch={spy}/>);

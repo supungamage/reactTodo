@@ -29,7 +29,7 @@ export var todoReducer = (state = [], action) => {
     case 'UPDATE_TODO':
       return state.map((todo) => {
         if(todo.id === action.id) {
-          var nextCompleted = !todo.compleated;
+          var nextCompleted = !todo.completed;
           return {
             ...todo,
             ...action.updates

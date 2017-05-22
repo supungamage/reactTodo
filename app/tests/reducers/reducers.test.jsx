@@ -33,7 +33,7 @@ describe('Reducers', () => {
         type: 'ADD_TODO',
         todo: {
           text: 'anything',
-          compleated: false,
+          completed: false,
           createdAt: 4000
         }
       };
@@ -47,8 +47,8 @@ describe('Reducers', () => {
       var todos = [{
         id: 11,
         text: 'anything',
-        compleated: false,
-        compleatedAt: undefined,
+        completed: false,
+        completedAt: undefined,
         createdAt: 4000
       }];
       var action = {
@@ -67,14 +67,14 @@ describe('Reducers', () => {
         {
           id: 1,
           text: 'text',
-          compleated: true,
+          completed: true,
           createdAt: 123,
-          compleatedAt: 125
+          completedAt: 125
         }
       ];
       var updates = {
-        compleated: false,
-        compleatedAt: null
+        completed: false,
+        completedAt: null
       };
       var action = {
         type: 'UPDATE_TODO',
@@ -84,8 +84,8 @@ describe('Reducers', () => {
       var res = reducers.todoReducer(df(todoList), df(action));
 
       expect(res.length).toEqual(1);
-      expect(res[0].compleated).toEqual(updates.compleated);
-      expect(res[0].compleatedAt).toEqual(updates.compleatedAt);
+      expect(res[0].completed).toEqual(updates.completed);
+      expect(res[0].completedAt).toEqual(updates.completedAt);
       expect(res[0].text).toEqual(todoList[0].text);
     });
   });

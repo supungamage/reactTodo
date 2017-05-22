@@ -19,16 +19,16 @@ describe('TodoList', () => {
         {
           id: 1,
           text: 'dummy todo 1',
-          compleated: false,
+          completed: false,
           createdAt: 500,
-          compleatedAt: undefined
+          completedAt: undefined
         },
         {
           id: 2,
           text: 'dummy todo 2',
-          compleated: false,
+          completed: false,
           createdAt: 500,
-          compleatedAt: undefined
+          completedAt: undefined
         }
       ];
 

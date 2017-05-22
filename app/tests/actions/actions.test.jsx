@@ -32,7 +32,7 @@ describe('Actions', () => {
       type: 'ADD_TODO',
       todo: {
         text: 'anything',
-        compleated: false,
+        completed: false,
         createdAt: 4000
       }
     };
@@ -43,8 +43,8 @@ describe('Actions', () => {
 
   it('Should generate update todo action', () => {
     var updates = {
-      compleated: true,
-      compleatedAt: 500
+      completed: true,
+      completedAt: 500
     };
     var action = {
       type: 'UPDATE_TODO',
@@ -60,8 +60,8 @@ describe('Actions', () => {
     var todos = [{
       id: 11,
       text: 'anything',
-      compleated: false,
-      compleatedAt: undefined,
+      completed: false,
+      completedAt: undefined,
       createdAt: 4000
     }];
     var action = {
@@ -100,7 +100,7 @@ describe('Actions', () => {
 
         testTodoRef.set({
           text: 'Something to do',
-          compleated: false,
+          completed: false,
           createdAt: 23453453
         });
       })
@@ -124,9 +124,9 @@ describe('Actions', () => {
           id: testTodoRef.key
         });
         expect(mockActions[0].updates).toInclude({
-          compleated: true
+          completed: true
         });
-        expect(mockActions[0].updates.compleatedAt).toExist();
+        expect(mockActions[0].updates.completedAt).toExist();
 
         done();
       }, done);

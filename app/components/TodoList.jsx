@@ -6,10 +6,10 @@ import Todo from 'Todo';
 
 export var TodoList = React.createClass({
   render: function() {
-    var {todos, showCompleated, searchText} = this.props;
+    var {todos, showcompleted, searchText} = this.props;
 
     var renderTodos = () => {
-      var filteredTodos = TodoAPI.filterTodos(todos, showCompleated, searchText);
+      var filteredTodos = TodoAPI.filterTodos(todos, showcompleted, searchText);
       if(filteredTodos.length === 0) {
         return (
           <p className="container__message">Nothing to do</p>

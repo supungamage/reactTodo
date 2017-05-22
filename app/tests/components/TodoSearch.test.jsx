@@ -33,8 +33,8 @@ describe('TodoSearch', () => {
     var spy = expect.createSpy();
     var todoSearch = TestUtils.renderIntoDocument(<TodoSearch dispatch={spy}/>);
 
-    todoSearch.refs.showCompleated.checked = true;
-    TestUtils.Simulate.change(todoSearch.refs.showCompleated);
+    todoSearch.refs.showcompleted.checked = true;
+    TestUtils.Simulate.change(todoSearch.refs.showcompleted);
     expect(spy).toHaveBeenCalledWith(action);
   });
 });

@@ -16,7 +16,7 @@ describe('TodoAPI', () => {
       var todos = [{
         id: 11,
         text: 'test text',
-        compleated: false
+        completed: false
       }];
 
       TodoAPI.setTodos(todos);
@@ -40,7 +40,7 @@ describe('TodoAPI', () => {
       var todos = [{
         id: 11,
         text: 'test text',
-        compleated: false
+        completed: false
       }];
       localStorage.setItem('todos', JSON.stringify(todos));
 
@@ -63,30 +63,30 @@ describe('TodoAPI', () => {
     var todos = [{
       id: 1,
       text: 'filter text 1',
-      compleated: true
+      completed: true
     },{
       id: 2,
       text: 'other text 2',
-      compleated: false
+      completed: false
     },{
       id: 3,
       text: 'filter text 3',
-      compleated: true
+      completed: true
     }];
 
-    it('Should show all todos when showCompleated is true', () => {
+    it('Should show all todos when showcompleted is true', () => {
       var filterTodos = TodoAPI.filterTodos(todos, true, '');
       expect(filterTodos.length).toBe(todos.length);
     });
 
-    it('Should show only completed todos when showCompleated is false', () => {
+    it('Should show only completed todos when showcompleted is false', () => {
       var filterTodos = TodoAPI.filterTodos(todos, false, '');
       expect(filterTodos.length).toBe(1);
     });
 
     it('Should filter todos not completed todos come first', () => {
       var filterTodos = TodoAPI.filterTodos(todos, true, '');
-      expect(filterTodos[0].compleated).toBe(false);
+      expect(filterTodos[0].completed).toBe(false);
     });
 
     it('Should filter by searchText is available', () => {

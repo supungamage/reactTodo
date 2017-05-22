@@ -29,12 +29,12 @@ export var updateTodo = (id, updates) => {
   };
 };
 
-export var startUpdateTodo = (id, compleated) => {
+export var startUpdateTodo = (id, completed) => {
   return (dispatch, getState) => {
     var todoRef = firebaseRef.child(`todos/${id}`);
     var updates = {
-      compleated,
-      compleatedAt: compleated ? moment().unix() : null
+      completed,
+      completedAt: completed ? moment().unix() : null
     };
 
     return todoRef.update(updates).then(() => {
@@ -75,9 +75,9 @@ export var startAddTodo = (text) => {
   return (dispatch, getState) => {
     var todo = {
       text,
-      compleated: false,
+      completed: false,
       createdAt: moment().unix(),
-      compleatedAt: null
+      completedAt: null
     };
 
     var todoRef = firebaseRef.child('todos').push(todo);

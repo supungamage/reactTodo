@@ -6,7 +6,7 @@ import {searchTextReducer, showCompletedReducer, todoReducer} from 'reducers';
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
     searchText: searchTextReducer,
-    showCompleated: showCompletedReducer,
+    showcompleted: showCompletedReducer,
     todos: todoReducer
   });
 

@@ -5,7 +5,7 @@ var actions = require('actions');
 
 export var TodoSearch = React.createClass({
   render: function() {
-    var {dispatch,showCompleated,searchText} = this.props;
+    var {dispatch,showcompleted,searchText} = this.props;
     return(
       <div className="container__header">
         <div>
@@ -16,10 +16,10 @@ export var TodoSearch = React.createClass({
         </div>
         <div>
           <label>
-            <input type="checkbox" ref="showCompleated" checked={showCompleated} onChange={() => {
+            <input type="checkbox" ref="showcompleted" checked={showcompleted} onChange={() => {
                 dispatch(actions.toggleShowCompleted());
               }}/>
-            Show compleated todos
+            Show completed todos
           </label>
         </div>
       </div>
@@ -29,7 +29,7 @@ export var TodoSearch = React.createClass({
 
 export default connect((state) => {
   return {
-    showCompleated: state.showCompleated,
+    showcompleted: state.showcompleted,
     searchText: state.searchText
   };
 })(TodoSearch);
