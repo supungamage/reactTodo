@@ -21,8 +21,11 @@ store.dispatch(actions.addTodos(initialTodos));*/
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    debugger;
+    store.dispatch(actions.login(user.uid));
     hashHistory.push('/todos');
   } else {
+    store.dispatch(actions.logout());
     hashHistory.push('/');
   }
 });
