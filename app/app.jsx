@@ -21,7 +21,6 @@ store.dispatch(actions.addTodos(initialTodos));*/
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    debugger;
     store.dispatch(actions.login(user.uid));
     store.dispatch(actions.startAddTodos());
     hashHistory.push('/todos');

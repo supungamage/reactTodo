@@ -88,6 +88,24 @@ describe('Reducers', () => {
       expect(res[0].completedAt).toEqual(updates.completedAt);
       expect(res[0].text).toEqual(todoList[0].text);
     });
+
+    it('Should wipe todos array when logout', () => {
+      var todoList = [
+        {
+          id: 1,
+          text: 'text',
+          completed: true,
+          createdAt: 123,
+          completedAt: 125
+        }
+      ];
+      var action = {
+        type: 'LOGOUT'
+      };
+      var res = reducers.todoReducer(df(todoList), df(action));
+
+      expect(res.length).toEqual(0);
+    });
   });
 
   describe('authReducer', () => {
